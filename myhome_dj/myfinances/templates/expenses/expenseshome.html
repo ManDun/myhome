@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Expenses Home</h1>
+  <p class="lead">Use this page to add, delete and view expenses</p>
+  <hr class="my-4">
+  <p>Select Date to view Logs for a particular date or month or year</p>
+  <a class="btn btn-primary btn-lg" href="{% url 'myfinances:addexpense' %}">{% trans "Add Expense" %}</a>
+  <a class="btn btn-secondary btn-lg disabled" href="{% url 'myfinances:addexpense' %}">{% trans "Dashboard" %}</a>
+</div>
+
+
+{% endblock %}
