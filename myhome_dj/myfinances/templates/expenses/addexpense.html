@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
 <div class="jumbotron">
   <h1 class="display-4">Add Expense</h1>
   <p class="lead">Use this page to add expense for the date.</p>
@@ -11,7 +13,7 @@
     Add Expense
   </button>
   <a class="btn btn-secondary btn-lg" href="{% url 'myfinances:expensehome' %}" role="button">View Expenses</a>
-  
+
 </div>
 
 <div class="row justify-content-center">
@@ -27,7 +29,7 @@
           <th scope="col">File</th>
         </tr>
       </thead>
-      
+
     </table>
   </div>
 </div>
@@ -44,7 +46,18 @@
         </button>
       </div>
       <form method="POST" enctype="multipart/form-data">
-        
+        <div class="modal-body">
+          {% csrf_token %}
+          {{ form|crispy }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button class="btn btn-primary" type="Submit">
+            Add
+          </button>
+        </div>
       </form>
     </div>
   </div>

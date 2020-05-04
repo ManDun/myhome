@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
+from myfinances import forms
 
 
 def index(request):
@@ -18,8 +19,16 @@ def expensehome(request):
 
 
 def addexpense(request):
+    form = forms.ExpenseForm()
 
-    return render(request, 'expenses/addexpense.html')
+    if request.method == 'POST':
+        form = forms.ExpenseForm(request.POST)
+
+        if form.is_valid():
+            print('POST')
+            print(form.cleaned_data['name'])
+
+    return render(request, 'expenses/addexpense.html', {'form': form})
 
 
 def incomeshome(request):
