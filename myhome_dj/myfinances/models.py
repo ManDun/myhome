@@ -4,7 +4,7 @@ from myhome_dj.users.models import User
 
 # Create your models here.
 class Expenses(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(null=False, max_length=150)
     TYPE_CHOICES = [
         ('food', 'Food'),
@@ -22,13 +22,20 @@ class Expenses(models.Model):
 
 
 class Files(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(null=False, max_length=150)
     type = models.CharField(null=True, max_length=50)
     date_of_upload = models.DateTimeField(default=datetime.now, null=False)
     contents = models.BinaryField(null=True)
     size = models.FloatField(default=0)
     expense = models.ForeignKey(Expenses, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+class DjFiles(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.FileField()
 
     def __str__(self):
         return self.name

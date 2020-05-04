@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
 from myfinances import forms
+from myfinances.models import Files
 
 
 def index(request):
@@ -22,11 +23,15 @@ def addexpense(request):
     form = forms.ExpenseForm()
 
     if request.method == 'POST':
-        form = forms.ExpenseForm(request.POST)
+        form = forms.ExpenseForm(request.POST, request.FILES)
 
         if form.is_valid():
             print('POST')
             print(form.cleaned_data['name'])
+            Files.name = request.FILES['bill']
+            form.instance.user = request.user
+            form.save(commit=True)
+            print(request.FILES['bill'])
 
     return render(request, 'expenses/addexpense.html', {'form': form})
 
