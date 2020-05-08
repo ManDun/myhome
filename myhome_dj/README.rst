@@ -128,7 +128,7 @@ Deployment
 ----------
 
 The following details how to deploy this application.
-set the following environment variales
+set the following environment variales::
     $ python3.8 -m venv myhome-venv
     $ source myhome-venv/bin/activate
     $ pip install -r requirements/local.txt
