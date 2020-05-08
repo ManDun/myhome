@@ -4,6 +4,13 @@
 {% block title %}User: {{ object.username }}{% endblock %}
 
 {% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Hi {{ object.username }}</h1>
+  <p class="lead">Please use this page to update profile.</p>
+  <hr class="my-4">
+  <p>This page uses <a href="https://getbootstrap.com/">bootstrap 4</a> and <a href="https://palletsprojects.com/p/flask/">Flask</a>, to know more about the technology and site pages click the button below.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
 <div class="container">
 
   <div class="row">
