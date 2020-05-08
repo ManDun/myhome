@@ -16,7 +16,16 @@ def index(request):
 
 def expensehome(request):
 
-    return render(request, 'expenses/expenseshome.html')
+    form = forms.SearchExpenseForm()
+
+    if request.method == 'POST':
+        form = forms.ExpenseForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            print('POST')
+            print(form.cleaned_data['frequency'])
+
+    return render(request, 'expenses/expenseshome.html', {'form': form})
 
 
 def addexpense(request):

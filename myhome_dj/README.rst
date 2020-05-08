@@ -128,6 +128,14 @@ Deployment
 ----------
 
 The following details how to deploy this application.
+set the following environment variales
+    $ python3.8 -m venv myhome-venv
+    $ source myhome-venv/bin/activate
+    $ pip install -r requirements/local.txt
+    $ export DATABASE_URL=postgres://myhome_dj_user:<password>@192.168.1.100:5432/myhome_dj
+    $ export EMAIL_HOST_PASSWORD=<EMAILPASSWORD>
+    $ python manage.py migrate
+    $ python manage.py runserver 0.0.0.0:8000
 
 
 
