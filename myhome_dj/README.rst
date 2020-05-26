@@ -132,7 +132,7 @@ set the following environment variables::
     $ python3 -m venv myhome-venv
     $ source myhome-venv/bin/activate
     $ pip3 install -r requirements/local.txt
-    $ export DATABASE_URL=postgres://myhome_dj_user:<password>@192.168.1.100:5432/myhome_dj
+    $ export DATABASE_URL=postgres://myhome_dj_user:<password>@192.168.1.102:5432/myhome_dj
     $ export EMAIL_HOST_PASSWORD=<EMAILPASSWORD>
     $ export CELERY_BROKER_URL=redis://localhost:6379/0
     $ python3 manage.py migrate

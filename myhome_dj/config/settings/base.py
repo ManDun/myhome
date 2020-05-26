@@ -15,8 +15,11 @@ if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
     env.read_env(str(ROOT_DIR / ".env"))
 
-#expenses/
+#finances/
 EXP_DIR = ROOT_DIR/"myfinances"
+
+#personals
+PER_DIR = ROOT_DIR/"mypersonals"
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -82,7 +85,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "myhome_dj.users.apps.UsersConfig",
     # Your stuff: custom apps go here
-    "myfinances"
+    "myfinances",
+    "mypersonals"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -171,7 +175,7 @@ TEMPLATES = [
         # https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         # https://docs.djangoproject.com/en/dev/ref/settings/#template-dirs
-        "DIRS": [str(APPS_DIR / "templates"), str(EXP_DIR/"templates")],
+        "DIRS": [str(APPS_DIR / "templates"), str(EXP_DIR/"templates"), str(PER_DIR/"templates")],
         "OPTIONS": {
             # https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
             # https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types
