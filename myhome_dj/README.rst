@@ -139,5 +139,15 @@ set the following environment variables::
     $ python3 manage.py runserver 0.0.0.0:8000
 
 
+Docker
+^^^^^^
+
+See detailed `cookiecutter-django Docker documentation`_.
+
+.. _`cookiecutter-django Docker documentation`: http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html
+
+
+
+
 
 
